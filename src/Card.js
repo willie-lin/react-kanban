@@ -10,8 +10,8 @@ let titlePropType = (props, propName, componentName) => {
         let value = props[propName];
          if(typeof value !== 'string' || value.length > 80) {
              return new Error(
-                 `${propName} in ${componentName} is longer then 80 characteras`
-             )
+                 `${propName} in ${componentName} is longer then 80 characters`
+             );
          }
     }
 };
