@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import CheckList from './CheckList';
 import PropTypes from 'prop-types';
 import marked from 'marked';
@@ -14,7 +15,8 @@ let titlePropType = (props, propName, componentName) => {
              );
          }
     }
-};
+}
+
 
 class Card extends Component {
     constructor() {
@@ -26,7 +28,6 @@ class Card extends Component {
     toggleDetails() {
         this.setState({showDetails: !this.state.showDetails});
     }
-
 
     render() {
 
@@ -43,6 +44,7 @@ class Card extends Component {
                 </div>
             );
         }
+
         let sideColor = {
             position: 'absolute',
             zIndex: -1,
@@ -61,7 +63,10 @@ class Card extends Component {
                     <div className={this.state.showDetails ? "card__title card__title--is-open" : "card__title"} onClick={this.toggleDetails.bind(this)}>
                         {this.props.title}
                     </div>
+                <ReactCSSTransitionGroup transitionName="toggle"
+                transitionEnterTimeout={250}>
                 {cardDetails}
+                </ReactCSSTransitionGroup>
             </div>
         );
     }
