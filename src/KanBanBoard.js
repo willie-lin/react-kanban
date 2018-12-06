@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import List from './List';
 import './App.css'
 
-class KanbanBoard extends Component {
+class KanBanBoard extends Component {
 
 
     render() {
@@ -18,8 +18,8 @@ class KanbanBoard extends Component {
         );
     }
 }
-KanbanBoard.propTypea = {
+KanBanBoard.propTypea = {
     cards: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default KanbanBoard;
+export default KanBanBoard;

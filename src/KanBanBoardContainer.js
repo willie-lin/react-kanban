@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KanbanBoard from "./KanbanBoard";
+import KanBanBoard from "./KanBanBoard";
 import 'whatwg-fetch';
 
 const API_URL = 'http://kanbanapi.pro-react.com';
@@ -15,31 +15,7 @@ const API_HEADERS = {
 
 
 
-class KanbanBoardContainer extends Component{
-
-    // constructor() {
-    //     super(...arguments);
-    //     this.state = {
-    //         cards: [],
-    //     };
-    // }
-    // componentDidMount() {
-    //     // alert('111');
-    //     // fetch(this.API_URL + '/cards', {headers: this.API_HEADERS})
-    //
-    //     fetch('KanBan.json')
-    //         // .then((response) => response.json())
-    //         .then((responseData) => {
-    //             console.log(responseData);
-    //             this.setState({cards: responseData});
-    //             alert('222');
-    //             alert(this.state.cards);
-    //             alert('333');
-    //         }).catch((error) => {
-    //             console.log('Error fetching and parsing data', error);
-    //     });
-    // }
-
+class KanBanBoardContainer extends Component{
 
     constructor(){
         super(...arguments);
@@ -47,6 +23,7 @@ class KanbanBoardContainer extends Component{
             cards:[],
         };
     }
+
     componentDidMount(){
         fetch(API_URL+'/cards', {headers: API_HEADERS})
         //
@@ -63,9 +40,9 @@ class KanbanBoardContainer extends Component{
     render() {
         return (
             <div>
-                <KanbanBoard cards = { this.state.cards } />
+                <KanBanBoard cards = { this.state.cards } />
             </div>
         );
     }
 }
-export default KanbanBoardContainer;
+export default KanBanBoardContainer;
