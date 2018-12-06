@@ -37,10 +37,28 @@ class KanBanBoardContainer extends Component{
             });
     }
 
+    addTask(cardId, taskName) {
+
+    }
+
+    deleteTask(cardId, taskId, taskIndex){
+
+    }
+
+    toggleTask(cardId, taskId, taskIndex) {
+
+    }
+
     render() {
         return (
             <div>
-                <KanBanBoard cards = { this.state.cards } />
+                <KanBanBoard cards = { this.state.cards }
+                taskCallbacks={{
+                    toggle: this.toggleTask.bind(this),
+                    delete: this.deleteTask.bind(this),
+                    add: this.addTask.bind(this)
+                }}
+                />
             </div>
         );
     }
