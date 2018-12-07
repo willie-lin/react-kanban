@@ -192,6 +192,10 @@ class KanBanBoardContainer extends Component{
                     delete: this.deleteTask.bind(this),
                     add: this.addTask.bind(this)
                 }}
+                             cardCallbacks={{
+                                 updateStatus: this.updateCardStatus.bind(this),
+                                 updatePosition: this.updateCardPosition.bind(this)
+                             }}
                 />
             </div>
         );
