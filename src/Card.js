@@ -22,19 +22,24 @@ let titlePropType = (props, propName, componentName) => {
 const cardDragSpec = {
     beginDrag(props) {
         return {
-            id: props.id
+            id: props.id,
+            status: props.status
         };
+    },
+    endDrag(props){
+        props.cardCallbacks.persistCardDrag(props.id, props.status);
     }
-}
+};
+
 
 const cardDropSpec = {
     hover(props, monitor) {
         const draggedId = monitor.getItem().id;
         props.cardCallbacks.updatePosition(draggedId, props.id);
     }
-}
+};
 
-let colletcDrag = (connect, monitor) => {
+let collectDrag = (connect, monitor) => {
     return {
         connectDragSource: connect.dragSource()
     };
@@ -45,7 +50,7 @@ let collectDrop = (connect, monitor) => {
     return {
         connectDropTarget: connect.dropTarget()
     };
-}
+};
 
 class Card extends Component {
     constructor() {
@@ -115,7 +120,7 @@ Card.propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired
 };
-            const dragHighOrderCard = DragSource(constants.CARD, cardDragSpec,colletcDrag)(Card);
+            const dragHighOrderCard = DragSource(constants.CARD, cardDragSpec, collectDrag)(Card);
             const dragDropHighOrderCard = DropTarget(constants.CARD, cardDropSpec, collectDrop)(dragHighOrderCard);
 
 export default dragDropHighOrderCard;
