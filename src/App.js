@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import './App.css'
+import { BrowserRouter as Router, Route, Link, HashRouter } from "react-router-dom";
+
+import './App.css';
+import KanBanBoard from './KanBanBoard';
+import EditCard from './EditCard';
+import NewCard from './NewCard';
 // import KanbanBoard from "./KanbanBoard";
 import KanBanBoardContainer from './KanBanBoardContainer';
 
@@ -51,15 +56,56 @@ import KanBanBoardContainer from './KanBanBoardContainer';
 class App extends Component {
 
 
+//     render() {
+//         return (
+//             <div>
+//            {/*<HashRouter>*/}
+//             <Router>
+//             <Route component={KanBanBoardContainer}>
+//                 <Route path="/" component={KanBanBoard}>
+//                     <Route path="new" component={NewCard} />
+//                     <Route path="edit/:card_id" component={EditCard}/>
+//                 </Route>
+//             </Route>
+//             </Router>
+//     {/*</BrowserRouter>*/}
+//            {/*</HashRouter>*/}
+//                 {/*<Router history={createBrowserHistory()}>*/}
+//                     {/*<Route component={KanBanBoardContainer}>*/}
+//                         {/*<Route path="/" component={KanBanBoard}>*/}
+//                             {/*<Route path="new" component={NewCard} />*/}
+//                             {/*<Route path="edit/:card_id" component={EditCard} />*/}
+//                         {/*</Route>*/}
+//                     {/*</Route>*/}
+//                 {/*</Router>*/}
+//             </div>
+//         );
+//     }
+// }
+
+    // render() {
+    //     return (
+    //         <div>
+    //             <KanBanBoardContainer />
+    //             {/*<KanbanBoard cards={cardsList} />*/}
+    //         </div>
+    //     );
+    // }
+
 
     render() {
         return (
             <div>
-                <KanBanBoardContainer />
-                {/*<KanbanBoard cards={cardsList} />*/}
+                {/*/!*<HashRouter path="/" component={KanBanBoardContainer}>*!/*/}
+                {/*<Router path="/" component={KanBanBoardContainer}>*/}
+                {/*</Router>*/}
+                {/*/!*</HashRouter>*!/*/}
+
+                <KanBanBoardContainer/>
             </div>
         );
     }
+
 }
 
 export default App;

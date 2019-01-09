@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import marked from 'marked';
 import constants from './Constants';
 import './App.css'
+import {Link} from "react-router-dom";
+import './card.css'
 
 
 let titlePropType = (props, propName, componentName) => {
@@ -17,7 +19,7 @@ let titlePropType = (props, propName, componentName) => {
              );
          }
     }
-}
+};
 
 const cardDragSpec = {
     beginDrag(props) {
@@ -94,6 +96,7 @@ class Card extends Component {
         return connectDropTarget(connectDragSource(
             <div className="card">
                 <div style={sideColor} />
+                {/*<div className="card_edit"><Link to={`/edit/` + this.props.id}>&#9998;</Link></div>*/}
 
                 {/*<div className="card__title" onClick={() => this.setState({showDetails: !this.state.showDetails})}>*/}
                 {/*<div className="card__title" onClick={this.toggleDetails.bind(this)}>*/}
@@ -101,7 +104,8 @@ class Card extends Component {
                         {this.props.title}
                     </div>
                 <ReactCSSTransitionGroup transitionName="toggle"
-                transitionEnterTimeout={250}>
+                transitionEnterTimeout={250}
+                transitionLeaveTimeout={250}>
                 {cardDetails}
                 </ReactCSSTransitionGroup>
             </div>
